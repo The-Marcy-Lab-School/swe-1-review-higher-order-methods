@@ -29,8 +29,18 @@ const zendayaMovieTitles = movies
   .filter(movie => movie.cast.includes('Zendaya'))
   .map(movie => movie.title);
 
-// Reduce: Calculate the average cast size for all movies
-const averageCastSize = movies.reduce((total, movie) => total + movie.cast.length, 0) / movies.length;
+// Reduce: Create a dictionary of { genre: movieCount } for all genres
+const genreCounts = movies.reduce((genreCounts, movie) => {
+  movie.genres.forEach(genre => {
+    if (!genreCounts[genre]) {
+      genreCounts[genre] = 0;
+    }
+    genreCounts[genre] += 1;
+  })
+  return genreCounts;
+}, {});
 
-// Filter + Reduce: Calculate the average cast size for movies made in 2020
-const averageCastSize2020 = moviesMadeIn2020.reduce((total, movie) => total + movie.cast.length, 0) / moviesMadeIn2020.length;
+// Reduce: Calculate the average cast size for all movies
+const averageCastSize = movies.reduce((totalCastSize, movie) => {
+  return totalCastSize + movie.cast.length
+}, 0) / movies.length;

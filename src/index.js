@@ -20,8 +20,8 @@ const comedyTitlesIn2020 = '';
 // Filter + Map: Get just the names of the movies where Zendaya was in the cast
 const zendayaMovieTitles = '';
 
+// Reduce: Create a dictionary of { genre: movieCount } for all genres
+const genreCounts = '';
+
 // Reduce: Calculate the average cast size for all movies
 const averageCastSize = '';
-
-// Filter + Reduce: Calculate the average cast size for movies made in 2020
-const averageCastSize2020 = '';
